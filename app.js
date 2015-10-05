@@ -22,7 +22,7 @@
         });
 
         serial = new SerialPort(serialPort, {
-            baudrate: 9600
+            baudrate: 115200
         }, true);
 
         /**
@@ -30,9 +30,6 @@
          */
         serial.on('open', function() {
             console.log('SerialPort opened on %s', serialPort);
-            setTimeout(function() {
-                serial.write('Hello, Arduino!\r');
-            },8000);
         });
 
         serial.on('close', function() {
@@ -51,6 +48,11 @@
 
             socket.on('chat message', function (msg) {
                 console.log('%s: %s ', socket.id, msg);
+            });
+
+            socket.on('led:matrix', function(matrix) {
+                console.info('Emit LED matrix: ', matrix);
+                serial.write(matrix.join() + ',show,');
             });
         });
 
