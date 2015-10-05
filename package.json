@@ -1,35 +1,11 @@
 {
   "name": "animation-wizard-led-serial",
-  "version": "1.0.0",
-  "description": "Backend for the Serial Communication (USB) with Arduino compatible boards.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/marborkowski/animation-wizard-led-serial.git"
-  },
-  "keywords": [
-    "arduino",
-    "expressjs",
-    "express.js",
-    "nodejs",
-    "node.js",
-    "led",
-    "neopixels",
-    "wizard",
-    "configurator",
-    "config",
-    "configuration"
-  ],
-  "author": "Marcin Borkowski <marborkowski@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/marborkowski/animation-wizard-led-serial/issues"
-  },
-  "homepage": "https://github.com/marborkowski/animation-wizard-led-serial",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {},
   "dependencies": {
-    "express": "^4.13.3"
+    "express": "^4.13.3",
+    "serialport": "^1.7.4",
+    "socket.io": "^1.3.7"
   }
 }
