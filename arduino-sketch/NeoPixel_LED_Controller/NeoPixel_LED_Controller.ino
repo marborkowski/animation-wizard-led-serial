@@ -64,6 +64,7 @@ boolean clean = true;
 void loop() {
   while(Serial.available()) {
     if(!clean) {
+      // Clean all pixels each time the new serial data is comming
       for(int i=0;i<=NUMPIXELS;i++) {
         pixels.setPixelColor(i, 0);
       }
@@ -72,14 +73,15 @@ void loop() {
     
     receivedData = Serial.readStringUntil(',');
     
+    // Detect "show" trigger.
+    // If it comes, we should call the 'show()' method.
+    // If no, just configure the right pixel.
     if(receivedData != "show") {
-      pixels.setPixelColor(receivedData.toInt(), pixels.Color(102, 204, 0));
+      pixels.setPixelColor(receivedData.toInt(), pixels.Color(255, 0, 0));
     } else {
       pixels.show();
       clean = false;
     }
-        
-    Serial.flush();
   } 
 }
  
